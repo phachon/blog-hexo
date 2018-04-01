@@ -78,4 +78,7 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repo: git@github.com:phachon/phachon.github.io.git
+  name: phachon
+  email: phachon@163.com
