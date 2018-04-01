@@ -80,5 +80,4 @@ theme: next
 deploy:
   type: git
   repo: git@github.com:phachon/phachon.github.io.git
-  name: phachon
-  email: phachon@163.com
+  branch: master
