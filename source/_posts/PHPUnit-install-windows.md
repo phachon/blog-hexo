@@ -1,5 +1,5 @@
 ﻿---
-title: PHPUnit  windows 下的安装
+title: PHPUnit windows 下的安装
 date: 2017-10-20
 categories: Coding
 tags:
@@ -9,6 +9,8 @@ tags:
 ---
 ----------------------------------
 
+> 本篇文章介绍一下 PHPUnit 在 windows 下的安装和配置
+
 # 准备
 - php 版本 php5.4.45
 - phpunit 版本 phpunit4.8.24
@@ -16,14 +18,14 @@ tags:
 - php 安装（这里不再详细讲解）
 - phpunit 下载地址：https://phpunit.de/ 下载到文件 phpunit-4.8.24.phar
 
+<!-- more -->
+
 # 安装
 
 1. 将下载的 phpunit-4.8.24.phar 文件保存保存为phar到你自己设定的目录，如我的目录是D：\server\phpunit 下。
 2. 配置 path 环境变量；计算机右击属性—>高级系统设置—>环境变量–> 在系统变量下找到 path 一栏，选中，编辑。添加 phpunit 路径;D:\server\phpunit  到最后。注意 ; 不要忘记。
 3. 按快捷键Win + R ，输入cmd并回车。打开 cmd 命令窗口，进入phpunit 的文件目录。D：\server\phpunit 
 4. 输入 echo @php “%~dp0phpunit.phar” %* > phpunit.cmd
-
-<!-- more -->
 
 接着输入phpunit –version 并回车显示如下
 
