@@ -8,7 +8,7 @@ subtitle: notes blog
 description: 好像什么都没有
 keywords: blog
 author: phachon
-language: zh-CN
+language: zh-Hans
 timezone:
 
 # URL
@@ -73,7 +73,7 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: icarus
+theme: next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

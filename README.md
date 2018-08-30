@@ -16,6 +16,8 @@ git config user.email phchon@163.com
 ```
 - hexo
 ```
+# 安装 hexo 
+npm i -g hexo
 # 安装 node_module
 npm install
 # 打包成静态文件
