@@ -1,6 +1,8 @@
 ---
 title: go 语言的并发机制
 date: 2018-09-03
+banner: /images/go_logo.jpg
+thumbnail: /images/go_logo.jpg
 categories: Coding
 tags:
   - go
