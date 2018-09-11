@@ -86,6 +86,6 @@ IO 复用的特点是需要两次系统调用（system），并且需要调用 s
 
 ## 参考
 
-1. http://www.liaoxuefeng.com/wiki/001374738125095c955c1e6d8bb493182103fac9270762a000/001386832151866c052395d62814708a14c4fa1c933d85e000
+1. https://segmentfault.com/a/1190000003063859#articleHeader11
 2. http://blog.csdn.net/historyasamirror/article/details/5778378
 
