@@ -131,6 +131,7 @@ tags:
 - [Redis底层原理](https://blog.csdn.net/wcf373722432/article/details/78678504)
 - [Redis 实现分布式锁](https://blog.csdn.net/l_bestcoder/article/details/79336986)
 - [PHP Redis实现分布式锁](https://www.cnblogs.com/wenxiong/p/3954174.html)
+- [为什么 Redis 是单线程的](https://mp.weixin.qq.com/s?__biz=MzI1NDQ3MjQxNA==&mid=2247485424&idx=1&sn=ba52c4e9616605b4093096b43e9a7f0e&chksm=e9c5fe41deb27757cef63bd50ee792a96036444605a21b7a42aad15743b254e0b782ef8d89d0&scene=21#wechat_redirect)
 
 ### RabbitMQ
 - [RabbitMQ基础知识详解](https://blog.csdn.net/dreamchasering/article/details/77653512)
@@ -168,19 +169,30 @@ tags:
 - [golang中的引用类型](https://studygolang.com/articles/13359?fr=sidebar)
 
 ### 高级
+
+#### 内存分配
 - [内存分配与管理](https://blog.csdn.net/zhonglinzhang/article/details/74626412)
 - [内存管理](https://www.cnblogs.com/ldaniel/p/8502867.html?utm_source=debugrun&utm_medium=referral)
 - [内存管理和垃圾回收](https://blog.csdn.net/qq_17612199/article/details/80278632)
+
+#### 启动过程
 - [go语言启动过程](https://phachon.com/2018/09/09/go_bootstrap/)
+
+#### 并发机制
 - [go语言并发机制](https://phachon.com/2018/09/03/go_concurrent/)
 - [go 调度器](https://studygolang.com/articles/1855)
 - [golang并发原理分析](https://blog.csdn.net/m0_37579159/article/details/79345831)
 - [理解 goroutine 的并发](https://blog.csdn.net/pmlpml/article/details/78850661)
 - [Goroutine调度机制](https://blog.csdn.net/liangzhiyang/article/details/52669851)
 - [Goroutine并发调度模型深度解析之手撸一个协程池](http://www.cnblogs.com/williamjie/p/9267741.html)
-- [fasthhtp 的优化](https://blog.csdn.net/screscent/article/details/79697992)
+- [也谈goroutine调度器](https://tonybai.com/2017/06/23/an-intro-about-goroutine-scheduler/)
+
+### channel
 - [channel的底层实现](https://wangzhezhe.github.io/2017/02/12/go-routine-using-scenarios/)
 - [深入理解 interface](https://blog.csdn.net/justaipanda/article/details/43155949)
+
+#### 其他
+- [fasthhtp 的优化](https://blog.csdn.net/screscent/article/details/79697992)
 
 ## PHP
 - [基本知识点总结](https://gitee.com/phachon/review-information/tree/master/php)
