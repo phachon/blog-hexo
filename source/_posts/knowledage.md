@@ -27,6 +27,7 @@ tags:
     - [平衡二叉树](http://www.cnblogs.com/polly333/p/4798944.html)
     - [红黑树](https://blog.csdn.net/sun_tttt/article/details/65445754)
     - [B 树](https://blog.csdn.net/aqzwss/article/details/53074186)
+    - [B 树的应用](https://www.cnblogs.com/tiancai/p/9024351.html)
     - [LSM 树](https://blog.csdn.net/dbanote/article/details/8897599)
     
 ## 算法
@@ -103,6 +104,8 @@ tags:
 
 ## 进程线程协程
 
+- [进程、线程、协程之概念理解](https://www.cnblogs.com/work115/p/5620272.html)
+
 ### 进程
 - [进程的概念]()
 - [进程间的同步机制](https://www.jianshu.com/p/9218692cb209)
@@ -118,12 +121,21 @@ tags:
 - [以goroutine为例看协程的相关概念](https://www.cnblogs.com/diegodu/p/5607627.html)
 - [PHP中协程的使用](http://www.laruence.com/2015/05/28/3038.html)
 
+### 内存分配
+- [TCMalloc介绍](http://legendtkl.com/2015/12/11/go-memory/)
+- [图解TCMalloc](https://zhuanlan.zhihu.com/p/29216091)
+- [内存优化总结](https://blog.csdn.net/junlon2006/article/details/77854898)
+
+## Linux命令
+- [50个最常用的命令](http://gywbd.github.io/posts/2014/8/50-linux-commands.html)
+- [Tcpdump使用抓包总结](https://www.cnblogs.com/chenpingzhao/p/9108570.html)
 
 ## 中间件
 
 ### MySQL
 - [学习MySQL优化原理，这一篇就够了](https://www.cnblogs.com/liujiacai/p/7605612.html)
 - [数据库优化](https://www.cnblogs.com/wmbg/p/6800354.html)
+- [MySQL 数据库索引优化项目实战](https://blog.csdn.net/gitchat/article/details/80326842)
 - [mysql面试](https://blog.csdn.net/qq_39322743/article/details/79701420)
 - [mysql面试集锦](http://app.myzaker.com/news/article.php?pk=5a114dd51bc8e03a2d000007)
 
@@ -197,6 +209,9 @@ tags:
 
 ## PHP
 - [基本知识点总结](https://gitee.com/phachon/review-information/tree/master/php)
+
+## 设计模式
+- [23中设计模式深入理解](http://www.cnblogs.com/foryang/p/5849402.html)
 
 ## 项目总结
 
