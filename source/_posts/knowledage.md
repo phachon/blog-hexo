@@ -138,6 +138,8 @@ tags:
 - [MySQL 数据库索引优化项目实战](https://blog.csdn.net/gitchat/article/details/80326842)
 - [mysql面试](https://blog.csdn.net/qq_39322743/article/details/79701420)
 - [mysql面试集锦](http://app.myzaker.com/news/article.php?pk=5a114dd51bc8e03a2d000007)
+- [索引区别](https://www.cnblogs.com/lonelyxmas/p/4594624.html)
+- [数据库优化](https://cloud.tencent.com/developer/article/1004367)
 
 ### Redis
 - [Redis总结](https://blog.csdn.net/hjm4702192/article/details/80518856)
@@ -145,6 +147,17 @@ tags:
 - [Redis 实现分布式锁](https://blog.csdn.net/l_bestcoder/article/details/79336986)
 - [PHP Redis实现分布式锁](https://www.cnblogs.com/wenxiong/p/3954174.html)
 - [为什么 Redis 是单线程的](https://mp.weixin.qq.com/s?__biz=MzI1NDQ3MjQxNA==&mid=2247485424&idx=1&sn=ba52c4e9616605b4093096b43e9a7f0e&chksm=e9c5fe41deb27757cef63bd50ee792a96036444605a21b7a42aad15743b254e0b782ef8d89d0&scene=21#wechat_redirect)
+- [Redis 数据结构]()
+    - [Redis内部数据结构详解之跳跃表(skiplist)](https://blog.csdn.net/Acceptedxukai/article/details/17333673)
+    - [Redis内部数据结构详解之压缩链表(ziplist)](https://blog.csdn.net/Acceptedxukai/article/details/17426321)
+    - [Redis内部数据结构详解之双向链表(linkedlist)](https://blog.csdn.net/Acceptedxukai/article/details/17467373)
+    - [Redis内部数据结构详解之整数集合(intset)](https://blog.csdn.net/Acceptedxukai/article/details/17472055)
+    - [Redis内部数据结构详解之简单动态字符串(sds)](https://blog.csdn.net/Acceptedxukai/article/details/17482611)
+    - [Redis内部数据结构详解之字典(dict)](https://blog.csdn.net/Acceptedxukai/article/details/17484431)
+    - [Redis源码整体运行流程详解](https://blog.csdn.net/Acceptedxukai/article/details/17842119)
+    - [Redis数据类型与指令详解之集合(t_set)](https://blog.csdn.net/Acceptedxukai/article/details/17883153)
+    - [Redis数据持久化机制AOF原理分析一](https://blog.csdn.net/Acceptedxukai/article/details/18136903)
+    - [Redis数据持久化机制AOF原理分析二](https://blog.csdn.net/Acceptedxukai/article/details/18181563)
 
 ### RabbitMQ
 - [RabbitMQ基础知识详解](https://blog.csdn.net/dreamchasering/article/details/77653512)
@@ -183,6 +196,8 @@ tags:
 
 ### 高级
 
+- [Golang适合高并发场景的原因分析](https://blog.csdn.net/ghj1976/article/details/27996095)
+
 #### 内存分配
 - [内存分配与管理](https://blog.csdn.net/zhonglinzhang/article/details/74626412)
 - [内存管理](https://www.cnblogs.com/ldaniel/p/8502867.html?utm_source=debugrun&utm_medium=referral)
@@ -209,6 +224,7 @@ tags:
 
 ## PHP
 - [基本知识点总结](https://gitee.com/phachon/review-information/tree/master/php)
+- [综合](https://github.com/wanglelecc/interview)
 
 ## 设计模式
 - [23中设计模式深入理解](http://www.cnblogs.com/foryang/p/5849402.html)
