@@ -36,6 +36,7 @@ tags:
 - [算法](https://blog.csdn.net/eldn__/article/details/79797236)
 - [常被问到的算法题](http://baike.renwuyi.com/2018-02/22397.html)
 - [面试算法题](https://cloud.tencent.com/developer/article/1011030)
+- [剑指 OFFER](https://blog.csdn.net/column/details/15795.html)
 
 ### 排序
 - [各种排序算法复杂度分析](https://blog.csdn.net/gane_cheng/article/details/52652705)
