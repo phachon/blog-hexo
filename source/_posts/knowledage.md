@@ -147,17 +147,6 @@ tags:
 - [Redis 实现分布式锁](https://blog.csdn.net/l_bestcoder/article/details/79336986)
 - [PHP Redis实现分布式锁](https://www.cnblogs.com/wenxiong/p/3954174.html)
 - [为什么 Redis 是单线程的](https://mp.weixin.qq.com/s?__biz=MzI1NDQ3MjQxNA==&mid=2247485424&idx=1&sn=ba52c4e9616605b4093096b43e9a7f0e&chksm=e9c5fe41deb27757cef63bd50ee792a96036444605a21b7a42aad15743b254e0b782ef8d89d0&scene=21#wechat_redirect)
-- [Redis 数据结构]()
-    - [Redis内部数据结构详解之跳跃表(skiplist)](https://blog.csdn.net/Acceptedxukai/article/details/17333673)
-    - [Redis内部数据结构详解之压缩链表(ziplist)](https://blog.csdn.net/Acceptedxukai/article/details/17426321)
-    - [Redis内部数据结构详解之双向链表(linkedlist)](https://blog.csdn.net/Acceptedxukai/article/details/17467373)
-    - [Redis内部数据结构详解之整数集合(intset)](https://blog.csdn.net/Acceptedxukai/article/details/17472055)
-    - [Redis内部数据结构详解之简单动态字符串(sds)](https://blog.csdn.net/Acceptedxukai/article/details/17482611)
-    - [Redis内部数据结构详解之字典(dict)](https://blog.csdn.net/Acceptedxukai/article/details/17484431)
-    - [Redis源码整体运行流程详解](https://blog.csdn.net/Acceptedxukai/article/details/17842119)
-    - [Redis数据类型与指令详解之集合(t_set)](https://blog.csdn.net/Acceptedxukai/article/details/17883153)
-    - [Redis数据持久化机制AOF原理分析一](https://blog.csdn.net/Acceptedxukai/article/details/18136903)
-    - [Redis数据持久化机制AOF原理分析二](https://blog.csdn.net/Acceptedxukai/article/details/18181563)
 
 ### RabbitMQ
 - [RabbitMQ基础知识详解](https://blog.csdn.net/dreamchasering/article/details/77653512)
@@ -178,6 +167,7 @@ tags:
 - [基本使用](https://blog.csdn.net/zls986992484/article/details/52737974)
 - [深入理解 memcache 原理](https://blog.csdn.net/chenleixing/article/details/47035453)
 - [Redis和Memcache区别，优缺点对比](https://www.cnblogs.com/JavaBlackHole/p/7726195.html)
+- [Memcached实现机制](https://blog.csdn.net/endlu/article/details/51385336)
 
 ### Sphinx 
 - [Sphinx 的介绍和原理探索](https://blog.csdn.net/yk19851111/article/details/51553351)
@@ -225,6 +215,7 @@ tags:
 ## PHP
 - [基本知识点总结](https://gitee.com/phachon/review-information/tree/master/php)
 - [综合](https://github.com/wanglelecc/interview)
+- [知识回顾](https://blog.csdn.net/qq_34625397/article/details/51785421)
 
 ## 设计模式
 - [23中设计模式深入理解](http://www.cnblogs.com/foryang/p/5849402.html)
