@@ -75,6 +75,10 @@ tags:
 ### TCP 
 - [TCP 协议](https://www.cnblogs.com/onepixel/p/7092302.html)
 - [TCP 三次握手](https://blog.csdn.net/whuslei/article/details/6667471/)
+- [TCP中11种状态](https://www.cnblogs.com/qingergege/p/6603488.html)
+- [TCP/IP/UDP协议详解](http://blog.chinaunix.net/uid-26833883-id-3627644.html)
+- [TCP/IP网络协议栈](http://www.cnblogs.com/xuanku/p/tcpip.html)
+- [TCP滑动窗口详解](https://www.cnblogs.com/luoquan/p/4886345.html)
 - [TCP 知识点总结](https://blog.csdn.net/slforeverlove/article/details/47018015)
 - [TCP面试题集](https://www.cnblogs.com/obama/p/3292335.html)
 
@@ -87,9 +91,8 @@ tags:
 ### HTTP
 - [Http 协议详细讲解](https://www.cnblogs.com/wangning528/p/6388464.html)
 - [Http1.0 和 Http1.1区别](https://www.cnblogs.com/gofighting/p/5421890.html)
-- [Http2.0 设计](https://blog.csdn.net/zhuyiquan/article/details/69257126)
-- [Http2.0 二进制帧](https://blog.csdn.net/u012657197/article/details/77877840)
 - [Http2.0 原理详细分析](https://blog.csdn.net/zhuyiquan/article/details/69257126)
+- [Http2.0 二进制帧](https://blog.csdn.net/u012657197/article/details/77877840)
 - [Session 和 Cookie](https://www.cnblogs.com/endlessdream/p/4699273.html)
 - [理解 Session 和 Cookie机制](http://www.cnblogs.com/andy-zhou/p/5360107.html)
 - [跨域问题](https://segmentfault.com/a/1190000007078606)
