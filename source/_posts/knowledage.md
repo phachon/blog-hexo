@@ -151,6 +151,8 @@ tags:
 - [Redis 实现分布式锁](https://blog.csdn.net/l_bestcoder/article/details/79336986)
 - [PHP Redis实现分布式锁](https://www.cnblogs.com/wenxiong/p/3954174.html)
 - [为什么 Redis 是单线程的](https://mp.weixin.qq.com/s?__biz=MzI1NDQ3MjQxNA==&mid=2247485424&idx=1&sn=ba52c4e9616605b4093096b43e9a7f0e&chksm=e9c5fe41deb27757cef63bd50ee792a96036444605a21b7a42aad15743b254e0b782ef8d89d0&scene=21#wechat_redirect)
+- [理解 redis 跳表](https://blog.csdn.net/u010412301/article/details/64923131)
+- [redis 底层数据结构](https://blog.csdn.net/wcf373722432/article/details/78678504)
 
 ### RabbitMQ
 - [RabbitMQ基础知识详解](https://blog.csdn.net/dreamchasering/article/details/77653512)
@@ -220,6 +222,8 @@ tags:
 - [基本知识点总结](https://gitee.com/phachon/review-information/tree/master/php)
 - [综合](https://github.com/wanglelecc/interview)
 - [知识回顾](https://blog.csdn.net/qq_34625397/article/details/51785421)
+- [变量在 PHP7 内部的实现（一）](https://segmentfault.com/a/1190000004124429)
+- [变量在 PHP7 内部的实现（二）](https://segmentfault.com/a/1190000004173452)
 
 ## 设计模式
 - [23中设计模式深入理解](http://www.cnblogs.com/foryang/p/5849402.html)
