@@ -99,6 +99,7 @@ tags:
 - [跨域问题2](http://www.ruanyifeng.com/blog/2016/04/cors.html)
 
 ### HTTPS
+- [Https 总结](http://www.cnblogs.com/noKing/p/9334243.html)
 - [Https 通俗了解](https://www.cnblogs.com/zhangshitong/p/6478721.html)
 - [HTTPS协议详解(一)：HTTPS基础知识](https://blog.csdn.net/hherima/article/details/52469267)
 - [HTTPS协议详解(二)：TLS/SSL工作原理](http://blog.csdn.net/hherima/article/details/52469360)
@@ -153,6 +154,9 @@ tags:
 - [为什么 Redis 是单线程的](https://mp.weixin.qq.com/s?__biz=MzI1NDQ3MjQxNA==&mid=2247485424&idx=1&sn=ba52c4e9616605b4093096b43e9a7f0e&chksm=e9c5fe41deb27757cef63bd50ee792a96036444605a21b7a42aad15743b254e0b782ef8d89d0&scene=21#wechat_redirect)
 - [理解 redis 跳表](https://blog.csdn.net/u010412301/article/details/64923131)
 - [redis 底层数据结构](https://blog.csdn.net/wcf373722432/article/details/78678504)
+- [Redis面试"刁难"问题](https://blog.csdn.net/varyall/article/details/81205183)
+- [Redis 防止雪崩或穿透](https://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&mid=2653548432&idx=1&sn=ac120e1ffca7c2007c0bc5df51e03d7b&chksm=813a7e08b64df71ec7b8b6afc2a36a8ff1d780db54a395b58a9f18f084080c09de514e999834&scene=21#wechat_redirect)
+
 
 ### RabbitMQ
 - [RabbitMQ基础知识详解](https://blog.csdn.net/dreamchasering/article/details/77653512)
@@ -184,6 +188,8 @@ tags:
 
 ## Go语言
 
+- [Golang 新手可能会踩的 50 个坑](https://segmentfault.com/a/1190000013739000)
+
 ### 基础
 - [常见知识点](https://studygolang.com/articles/10065)
 - [笔试网站](https://goquiz.github.io/)
@@ -210,6 +216,7 @@ tags:
 - [Goroutine调度机制](https://blog.csdn.net/liangzhiyang/article/details/52669851)
 - [Goroutine并发调度模型深度解析之手撸一个协程池](http://www.cnblogs.com/williamjie/p/9267741.html)
 - [也谈goroutine调度器](https://tonybai.com/2017/06/23/an-intro-about-goroutine-scheduler/)
+- [go源码分析博客](http://blog.cyeam.com/)
 
 ### channel
 - [channel的底层实现](https://wangzhezhe.github.io/2017/02/12/go-routine-using-scenarios/)
