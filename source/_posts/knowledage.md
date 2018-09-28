@@ -156,7 +156,7 @@ tags:
 - [redis 底层数据结构](https://blog.csdn.net/wcf373722432/article/details/78678504)
 - [Redis面试"刁难"问题](https://blog.csdn.net/varyall/article/details/81205183)
 - [Redis 防止雪崩或穿透](https://mp.weixin.qq.com/s?__biz=MzAwMDU1MTE1OQ==&mid=2653548432&idx=1&sn=ac120e1ffca7c2007c0bc5df51e03d7b&chksm=813a7e08b64df71ec7b8b6afc2a36a8ff1d780db54a395b58a9f18f084080c09de514e999834&scene=21#wechat_redirect)
-
+- [redis总结篇](https://segmentfault.com/a/1190000012038561)
 
 ### RabbitMQ
 - [RabbitMQ基础知识详解](https://blog.csdn.net/dreamchasering/article/details/77653512)
@@ -178,6 +178,8 @@ tags:
 - [深入理解 memcache 原理](https://blog.csdn.net/chenleixing/article/details/47035453)
 - [Redis和Memcache区别，优缺点对比](https://www.cnblogs.com/JavaBlackHole/p/7726195.html)
 - [Memcached实现机制](https://blog.csdn.net/endlu/article/details/51385336)
+- [MemCache 基础介绍与工作原理](https://segmentfault.com/a/1190000012950110)
+- [memcache的介绍与应用场景](https://segmentfault.com/a/1190000004053366)
 
 ### Sphinx 
 - [Sphinx 的介绍和原理探索](https://blog.csdn.net/yk19851111/article/details/51553351)
