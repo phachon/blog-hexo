@@ -3,7 +3,7 @@ title: Redis系列（一）：Redis 主从同步集群模式
 date: 2018-09-23 08:10:19
 banner: /images/redis_logo.png
 thumbnail: /images/redis_logo.png
-categories: Coding
+categories: Redis
 tags:
   - redis
 ---
