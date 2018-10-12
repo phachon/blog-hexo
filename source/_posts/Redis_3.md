@@ -1,6 +1,8 @@
 ---
 title: Redis系列（三）：Redis Cluster集群模式
 date: 2018-09-24 18:09:10
+banner: /images/redis_logo.png
+thumbnail: /images/redis_logo.png
 categories: Coding
 tags:
   - redis

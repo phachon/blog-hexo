@@ -1,6 +1,8 @@
 ---
 title: Redis系列（二）：Redis 哨兵集群模式
 date: 2018-09-24 12:09:10
+banner: /images/redis_logo.png
+thumbnail: /images/redis_logo.png
 categories: Coding
 tags:
   - redis
