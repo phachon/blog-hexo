@@ -50,6 +50,7 @@ insert into `video` (user_id, title) values (5, 'v3');
 insert into `video` (user_id, title) values (4, 'v11');
 
 ---- 索引的策略测试表
+DROP TABLE IF EXISTS `user_info`;
 CREATE TABLE `user_info` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
   `first_name` char(10) NOT NULL DEFAULT '' COMMENT '姓',
@@ -59,16 +60,16 @@ CREATE TABLE `user_info` (
   KEY `firstName_lastName_age_index` (`first_name`, `last_name`, `age`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
 
-insert into `user_info` (first_name, last_name, age) values ('zhang','san', 1);
-insert into `user_info` (first_name, last_name, age) values ('li','si', 18);
-insert into `user_info` (first_name, last_name, age) values ('wang','wu', 21);
-insert into `user_info` (first_name, last_name, age) values ('pan','liu', 41);
-insert into `user_info` (first_name, last_name, age) values ('jin','qi', 16);
-insert into `user_info` (first_name, last_name, age) values ('yang','ba', 8);
-insert into `user_info` (first_name, last_name, age) values ('yu','jiu', 9);
-insert into `user_info` (first_name, last_name, age) values ('ding','q', 10);
-insert into `user_info` (first_name, last_name, age) values ('wu','w', 13);
-insert into `user_info` (first_name, last_name, age) values ('zhao','u', 51);
-insert into `user_info` (first_name, last_name, age) values ('qian','k', 61);
-insert into `user_info` (first_name, last_name, age) values ('zheng','o', 31);
-insert into `user_info` (first_name, last_name, age) values ('zhou','z', 10);
+insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('zhang','san', 1);
+insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('li','si', 18);
+insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('wang','wu', 21);
+insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('pan','liu', 41);
+insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('jin','qi', 16);
+insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('yang','ba', 8);
+insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('yu','jiu', 9);
+insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('ding','q', 10);
+insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('wu','w', 13);
+insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('zhao','u', 51);
+insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('qian','k', 61);
+insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('zheng','o', 31);
+insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('zhou','z', 10);

@@ -1,8 +1,8 @@
 ---
 title: Mysql 索引系列（三）：索引的策略
 date: 2018-09-28 18:25:15
-banner: /images/redis_logo.png
-thumbnail: /images/redis_logo.png
+banner: /images/mysql_logo.png
+thumbnail: /images/mysql_logo.png
 categories: Mysql
 tags:
   - mysql
@@ -244,7 +244,7 @@ key_len 为 62，说明使用了前两列索引来匹配，first_name(3*10) + la
 如果第一列是范围查找第二列是精确查找会一样吗？
 
 ```$xslt
-mysql> explain select * from user_info where last_name between 'a' and 'j' and last_name='qiu'\G
+mysql> explain select * from user_info where first_name like '%a' and last_name='qiu'\G
 *************************** 1. row ***************************
            id: 1
   select_type: SIMPLE
@@ -269,8 +269,9 @@ possible_keys: NULL
 - 如果条件中有or，即使其中有条件带索引也不会使用(这也是为什么尽量少用or的原因)。注意：要想使用or，又想让索引生效，只能将or条件中的每个列都加上索引
 - 对于多列索引，不是使用的第一部分，则不会使用索引（即不符合最左前缀原则）
 - like查询是以%开头
-- 如果列类型是字符串，那一定要在条件中将数据使用引号引用起来,否则不使用索引
-- 如果mysql估计使用全表扫描要比使用索引快,则不使用索引
+- 如果列类型是字符串，那一定要在条件中将数据使用引号引用起来, 否则不使用索引
+- 查询条件中含有函数或表达式
+- 如果 mysql 估计使用全表扫描要比使用索引快，则不使用索引
 
 ## 参考
 《高性能 Mysql 第三版》

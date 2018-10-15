@@ -1,8 +1,8 @@
 ---
 title: Mysql 索引系列（一）：索引的实现
 date: 2018-09-28 09:15:45
-banner: /images/mysql_logo.gif
-thumbnail: /images/mysql_logo.gif
+banner: /images/mysql_logo.png
+thumbnail: /images/mysql_logo.png
 categories: Mysql
 tags:
   - mysql

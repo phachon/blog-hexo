@@ -1,8 +1,8 @@
 ---
 title: Mysql 索引系列（二）：了解并使用 EXPLAIN 命令
 date: 2018-09-28 10:25:15
-banner: /images/redis_logo.png
-thumbnail: /images/redis_logo.png
+banner: /images/mysql_logo.png
+thumbnail: /images/mysql_logo.png
 categories: Mysql
 tags:
   - mysql

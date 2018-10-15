@@ -134,6 +134,8 @@ tags:
 ## Linux命令
 - [50个最常用的命令](http://gywbd.github.io/posts/2014/8/50-linux-commands.html)
 - [Tcpdump使用抓包总结](https://www.cnblogs.com/chenpingzhao/p/9108570.html)
+- [Linux三剑客之awk命令](https://www.cnblogs.com/ginvip/p/6352157.html)
+- [使用awk,wc,sort,uniq,grep对nginx日志进行分析](https://blog.csdn.net/hellolingyun/article/details/8725991)
 
 ## 中间件
 
