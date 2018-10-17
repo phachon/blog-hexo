@@ -1,7 +1,7 @@
 ﻿---
 title: 点直播流媒体传输协议之 —— HLS（HTTP Live Streaming）
 date: 2016-09-13
-categories: Coding
+categories: Live
 tags:
   - HLS
   - TS

@@ -1,11 +1,9 @@
 ﻿---
 title: Sphinx 在 Linux 下的安装与基本配置
 date: 2016-09-06
-categories: Coding
+categories: Sphinx
 tags:
   - Sphinx
-  - Linux
-  - Mysql
 ---
 ----------------------------------
 

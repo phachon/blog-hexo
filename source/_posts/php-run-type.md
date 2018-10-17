@@ -1,13 +1,11 @@
 ﻿---
-title: 浅析 php 的几种运行方式
+title: 浅析 PHP 的几种运行方式
 date: 2016-07-29
-categories: Coding
+categories: PHP内核
 tags:
   - PHP
-  - CGI
   - FAST-CGI
   - PHP-FPM
-  - CLI
 ---
 ----------------------------------
 

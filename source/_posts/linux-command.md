@@ -1,7 +1,7 @@
 ﻿---
 title: Linux 常用命令总结
 date: 2016-07-28
-categories: Coding
+categories: Linux
 tags:
   - Linux
 ---

@@ -1,8 +1,8 @@
 ---
 title: 开源项目
 date: 2018-04-13
-banner: http://static.open-open.com/news/uploadImg/20150727/20150727204757_942.jpg
-thumbnail: http://static.open-open.com/news/uploadImg/20150727/20150727204757_942.jpg
+banner: /images/open_source.png
+thumbnail: /images/open_source.png
 ---
 
 ### 以下是本人的一些开源项目, 欢迎 Star 或 Fork

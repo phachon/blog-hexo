@@ -1,7 +1,7 @@
 ﻿---
 title: CentOS下php安装 mcrypt 扩展
 date: 2016-07-25
-categories: Coding
+categories: Install
 tags:
   - CentOS
   - PHP

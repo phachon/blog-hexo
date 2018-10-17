@@ -1,7 +1,7 @@
 ﻿---
 title: Go 获取文件信息方法
 date: 2017-10-10
-categories: Coding
+categories: Go基础
 tags:
   - Go
 ---

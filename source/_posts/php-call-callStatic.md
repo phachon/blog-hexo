@@ -1,7 +1,7 @@
 ﻿---
-title: PHP 魔术方法之 __call 与 __callStatic
+title: PHP 魔术方法
 date: 2016-07-28
-categories: Coding
+categories: PHP基础
 tags:
   - PHP
 ---

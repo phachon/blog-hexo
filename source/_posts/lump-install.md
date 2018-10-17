@@ -1,7 +1,7 @@
 ﻿---
 title: CentOS6.3+Apache2.2+php5.3.8+Mysql5.5.4源码搭建Lump环境
 date: 2016-07-29
-categories: Coding
+categories: Install
 tags:
   - CentOS
   - Apache

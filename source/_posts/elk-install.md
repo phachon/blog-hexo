@@ -1,7 +1,7 @@
 ﻿---
 title: ELK 实时日志分析系统平台的学习与使用
 date: 2016-09-22
-categories: Coding
+categories: ELK
 tags:
   - ELK
   - ElasticSearch

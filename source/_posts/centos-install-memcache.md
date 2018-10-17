@@ -1,7 +1,7 @@
 ﻿---
 title: CentOS 下安装 Memcache 和 php 扩展
 date: 2016-07-26
-categories: Coding
+categories: Install
 tags:
   - CentOS
   - Memcache

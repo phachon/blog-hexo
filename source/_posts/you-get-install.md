@@ -1,7 +1,7 @@
 ﻿---
 title: You-get 的安装与使用
 date: 2016-09-12
-categories: Coding
+categories: Misc
 tags:
   - You-get
   - Python3

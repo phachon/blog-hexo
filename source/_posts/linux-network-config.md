@@ -1,7 +1,7 @@
 ﻿---
 title: Linux网络配置
 date: 2016-07-24
-categories: Coding
+categories: Linux
 tags:
   - CentOS
   - Linux

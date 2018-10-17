@@ -1,7 +1,7 @@
 ﻿---
 title: 一个基于 node.js 搭建的web聊天系统
 date: 2016-10-11
-categories: Coding
+categories: OpenSource
 tags:
   - Node
   - Express

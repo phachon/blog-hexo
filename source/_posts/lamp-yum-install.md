@@ -1,7 +1,7 @@
 ﻿---
 title: Lump yum 安装与搭建
 date: 2016-07-25
-categories: Coding
+categories: Install
 tags:
   - CentOS 6.4
   - Apache 

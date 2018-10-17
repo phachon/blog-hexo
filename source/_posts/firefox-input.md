@@ -1,7 +1,7 @@
 ﻿---
 title: 火狐浏览器下刷新不清除表单问题
 date: 2016-12-30
-categories: Coding
+categories: Misc
 tags:
   - FireFox
   - Html

@@ -1,7 +1,7 @@
 ﻿---
 title: CronTab 解决周期内未执行完重复执行
 date: 2016-08-23
-categories: Coding
+categories: Crontab
 tags:
   - CronTab
   - PHP

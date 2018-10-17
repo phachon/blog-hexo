@@ -1,7 +1,7 @@
 ﻿---
 title: PHPUnit 学习实例代码
 date: 2017-10-20
-categories: Coding
+categories: PHPUnit
 tags:
   - PHP
   - PHPUnit

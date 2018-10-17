@@ -1,7 +1,7 @@
 ﻿---
 title: Wamp 环境的搭建
 date: 2016-07-26
-categories: Coding
+categories: Environment
 tags:
   - Windows
   - Mysql

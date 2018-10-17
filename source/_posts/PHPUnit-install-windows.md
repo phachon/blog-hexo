@@ -1,7 +1,7 @@
 ﻿---
 title: PHPUnit windows 下的安装
 date: 2017-10-20
-categories: Coding
+categories: PHPUnit
 tags:
   - PHPUnit
   - Windows

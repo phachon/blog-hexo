@@ -1,11 +1,9 @@
 ﻿---
 title: Sphinx 在网站应用中的服务架构设计
 date: 2016-09-06
-categories: Coding
+categories: Sphinx
 tags:
   - Sphinx
-  - Linux
-  - Mysql
 ---
 ----------------------------------
 

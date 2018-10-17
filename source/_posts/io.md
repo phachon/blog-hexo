@@ -1,7 +1,7 @@
 ﻿---
 title: IO 模型简介
 date: 2016-09-05 
-categories: Coding
+categories: Linux
 tags:
   - IO
   - Linux

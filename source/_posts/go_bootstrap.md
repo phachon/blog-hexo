@@ -3,7 +3,7 @@ title: Go 启动过程
 date: 2018-09-09
 banner: /images/go_logo.jpg
 thumbnail: /images/go_logo.jpg
-categories: Coding
+categories: Go内核
 tags:
   - go
 ---

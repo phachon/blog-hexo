@@ -4,7 +4,8 @@ menu:
   归档: archives
   分类: categories
   标签: tags
-  开源项目: opensource
+  关于: about
+  开源: opensource
 
 # Customize
 customize:
@@ -19,7 +20,7 @@ customize:
         avatar: css/images/logo.jpg
         gravatar: # Gravatar email address, if you enable Gravatar, your avatar config will be overriden
         author: phachon
-        author_title:
+        author_title: I am a free phper/goper
         location: Beijing, China
         follow: https://github.com/phachon
     highlight: androidstudio
@@ -28,7 +29,6 @@ customize:
     favicon: # path to favicon
     social_links:
         github: http://github.com/phachon
-        weibo: http://weibo.com/phachon
     social_link_tooltip: true # enable the social link tooltip, options: true, false
 
 # Widgets
