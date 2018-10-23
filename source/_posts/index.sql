@@ -2,6 +2,7 @@
 
 -- create database test default charset utf8;
 
+-- explain 测试表
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
@@ -49,27 +50,42 @@ insert into `video` (user_id, title) values (8, 'v14');
 insert into `video` (user_id, title) values (5, 'v3');
 insert into `video` (user_id, title) values (4, 'v11');
 
----- 索引的策略测试表
-DROP TABLE IF EXISTS `user_info`;
-CREATE TABLE `user_info` (
+-- 单列索引测试表
+DROP TABLE IF EXISTS `index_single_test`;
+CREATE TABLE `index_single_test` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `first_name` char(10) NOT NULL DEFAULT '' COMMENT '姓',
-  `last_name` varchar(10) NOT NULL DEFAULT '' COMMENT '名',
-  `age` int(3) NOT NULL DEFAULT '0' COMMENT '年龄',
+  `name` char(10) NOT NULL DEFAULT '' COMMENT '索引名称',
+  `type` char(50) NOT NULL DEFAULT '' COMMENT '类型',
+  `size` int(10) NOT NULL DEFAULT 0 COMMENT '索引长度',
   PRIMARY KEY (`id`),
-  KEY `firstName_lastName_age_index` (`first_name`, `last_name`, `age`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
+  UNIQUE KEY `name` (`name`),
+  KEY `type` (`type`),
+  KEY `size` (`size`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='单列索引测试表';
 
-insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('zhang','san', 1);
-insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('li','si', 18);
-insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('wang','wu', 21);
-insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('pan','liu', 41);
-insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('jin','qi', 16);
-insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('yang','ba', 8);
-insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('yu','jiu', 9);
-insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('ding','q', 10);
-insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('wu','w', 13);
-insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('zhao','u', 51);
-insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('qian','k', 61);
-insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('zheng','o', 31);
-insert into `user_info` (user_info.first_name, user_info.last_name, user_info.age) values ('zhou','z', 10);
+
+insert into `index_single_test` (index_single_test.name, index_single_test.type, index_single_test.size) values ('index_1','key', 10);
+insert into `index_single_test` (index_single_test.name, index_single_test.type, index_single_test.size) values ('index_2','join', 8);
+insert into `index_single_test` (index_single_test.name, index_single_test.type, index_single_test.size) values ('index_3','primary', 8);
+insert into `index_single_test` (index_single_test.name, index_single_test.type, index_single_test.size) values ('index_4','key', 9);
+insert into `index_single_test` (index_single_test.name, index_single_test.type, index_single_test.size) values ('index_5','fulltext', 4);
+insert into `index_single_test` (index_single_test.name, index_single_test.type, index_single_test.size) values ('index_6','unique', 6);
+
+
+-- 多列索引测试表
+DROP TABLE IF EXISTS `index_double_test`;
+CREATE TABLE `index_double_test` (
+  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `name` char(10) NOT NULL DEFAULT '' COMMENT '索引名称',
+  `type` char(50) NOT NULL DEFAULT '' COMMENT '类型',
+  `size` int(10) NOT NULL DEFAULT 0 COMMENT '索引长度',
+  PRIMARY KEY (`id`),
+  KEY `name_type_size` (`name`, `type`, `size`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='多列索引测试表';
+
+insert into `index_double_test` (index_double_test.name, index_double_test.type, index_double_test.size) values ('yu','key', 10);
+insert into `index_double_test` (index_double_test.name, index_double_test.type, index_double_test.size) values ('index2','join', 8);
+insert into `index_double_test` (index_double_test.name, index_double_test.type, index_double_test.size) values ('skr','primary', 8);
+insert into `index_double_test` (index_double_test.name, index_double_test.type, index_double_test.size) values ('order4','key', 9);
+insert into `index_double_test` (index_double_test.name, index_double_test.type, index_double_test.size) values ('pic','fulltext', 4);
+insert into `index_double_test` (index_double_test.name, index_double_test.type, index_double_test.size) values ('image','unique', 6);

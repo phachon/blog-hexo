@@ -14,6 +14,8 @@ tags:
 文章中，我们会经常使用该命令来调试和分析。除此之外，我们在工作中，也应该习惯去使用 `EXPLAIN`
 命令来分析和优化索引。
 
+本示例中使用的 Mysql 版本是： `5.7.23`
+
 <!-- more -->
 
 ## EXPLAIN 命令简介
@@ -197,7 +199,7 @@ possible_keys: PRIMARY
      filtered: 100.00
         Extra: NULL
 2 rows in set, 1 warning (0.00 sec)
-``` 
+```
 
 - ref：此类型通常出现在多表的 join 查询，针对于非唯一索引或主键索引，或者是使用了 `最左前缀` 规则索引的查询。
 - range：表示使用的是范围查询，通过索引字段范围获取表中部分数据记录，这个类型通常出现在 =，<>,>,<=,>=, IS NULL, <=>, between, in() 操作中。
@@ -234,6 +236,7 @@ possible_keys: age
         Extra: Using where; Using index
 1 row in set, 1 warning (0.00 sec)
 ```
+
 - index：表示全索引扫描，和 all 类型类似，只不过 all 类型是全表扫描，而 index 类型只扫描所有的索引，而不是扫描数据。通常情况下，index 出现在所要查询的
 数据直接出现在索引树中就可以直接获取到，而不需要扫描数据。一般 Extra 字段会显示 Using index。
 ```$xslt
@@ -253,6 +256,7 @@ possible_keys: age
         Extra: Using where; Using index
 1 row in set, 1 warning (0.00 sec)
 ```
+
 从 range 里面的示例和上面的示例我们可以看到两条相似的语句使用的查询类型不一样，原因是：
 因为 age 是索引，当使用 select age，直接可以通过二级索引树查到范围数据，所以是 range
 当使用 select * , 因为二级索引只能查到 age 和主键，想要查到所有数据集，需要再次回到主索引树查找，因此退化成了 index, 也就是需要全索引扫描
@@ -346,7 +350,7 @@ possible_keys: firstName_lastName_age_index
 1 row in set, 1 warning (0.00 sec)
 ```
 
-这个例子中匹配了前两列，所以是 key_len(first_name) + key_len(last_name) 等于 3*10 + 3*10+2 = 62 字节
+这个例子中匹配了前两列，所以是 key_len(first_name) + key_len(last_name) 等于 3 * 10 + 3 * 10 + 2 = 62 字节
 
 ### ref
 哪个字段或常数与 key 一起被使用

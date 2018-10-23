@@ -9,7 +9,9 @@ tags:
 ---
 ------------------------------------------
 
-Mysql 的索引使用的是 B Tree 索引，B Tree 索引适用于全健值、键值范围、键前缀查询。索引在创建索引的时候，我们必须了解存储引擎的索引的策略。这样才能是得查询尽量达到最优。
+Mysql 的索引使用的是 B Tree 索引，B Tree 索引适用于全健值、键值范围、键前缀查询。所以在创建索引的时候，我们必须了解存储引擎的索引的策略。这样才能使得查询效率尽量达到最优。
+
+本示例中使用的 Mysql 版本是： `5.7.23`
 
 <!-- more -->
 
@@ -65,118 +67,251 @@ FULLTEXT (content)
 ```
 MyISAM 引擎支持全文索引，InnoDB 引擎不支持全文索引。
 
-## 联合索引的索引策略
-创建好了各种类型的索引之后，如何合理的使用索引才是关键。如果不能按照索引的策略去写查询语句，查询性能会非常低下。这里我们先创建一个表用来测试：
-
-`Mysql 版本 5.7.23`
-
+## 单列索引的索引策略
+对于单列索引，并不是任何时候查询都会生效，我们通过实例来看一下哪些查询会导致索引失效，这对于我们日常开发是至关重要的。
+创建表结构如下：
 ```$xslt
-CREATE TABLE `user_info` (
+DROP TABLE IF EXISTS `index_single_test`;
+CREATE TABLE `index_single_test` (
   `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
-  `first_name` char(10) NOT NULL DEFAULT '' COMMENT '姓',
-  `last_name` varchar(10) NOT NULL DEFAULT '' COMMENT '名',
-  `age` int(3) NOT NULL DEFAULT '0' COMMENT '年龄',
+  `name` char(10) NOT NULL DEFAULT '' COMMENT '索引名称',
+  `type` char(50) NOT NULL DEFAULT '' COMMENT '类型',
+  `size` int(10) NOT NULL DEFAULT 0 COMMENT '索引长度',
   PRIMARY KEY (`id`),
-  KEY `firstName_lastName_age_index` (`first_name`, `last_name`, `age`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='用户表';
+  UNIQUE KEY `name` (`name`),
+  KEY `type` (`type`),
+  KEY `size` (`size`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='单列索引测试表';
 
-insert into `user_info` (first_name, last_name, age) values ('zhang','san', 1);
-insert into `user_info` (first_name, last_name, age) values ('li','si', 18);
-insert into `user_info` (first_name, last_name, age) values ('wang','wu', 21);
-insert into `user_info` (first_name, last_name, age) values ('pan','liu', 41);
-insert into `user_info` (first_name, last_name, age) values ('jin','qi', 16);
-insert into `user_info` (first_name, last_name, age) values ('yang','ba', 8);
-insert into `user_info` (first_name, last_name, age) values ('yu','jiu', 9);
-insert into `user_info` (first_name, last_name, age) values ('ding','q', 10);
-insert into `user_info` (first_name, last_name, age) values ('wu','w', 13);
-insert into `user_info` (first_name, last_name, age) values ('zhao','u', 51);
-insert into `user_info` (first_name, last_name, age) values ('qian','k', 61);
-insert into `user_info` (first_name, last_name, age) values ('zheng','o', 31);
-insert into `user_info` (first_name, last_name, age) values ('zhou','z', 10);
+insert into `index_single_test` (index_single_test.name, index_single_test.type, index_single_test.size) values ('index_1','key', 10);
+insert into `index_single_test` (index_single_test.name, index_single_test.type, index_single_test.size) values ('index_2','join', 8);
+insert into `index_single_test` (index_single_test.name, index_single_test.type, index_single_test.size) values ('index_3','primary', 8);
+insert into `index_single_test` (index_single_test.name, index_single_test.type, index_single_test.size) values ('index_4','key', 9);
+insert into `index_single_test` (index_single_test.name, index_single_test.type, index_single_test.size) values ('index_5','fulltext', 4);
+insert into `index_single_test` (index_single_test.name, index_single_test.type, index_single_test.size) values ('index_6','unique', 6);
 ```
 
-根据最左前缀策略，对以下的查找有效。
-
-### 全值匹配
-全值匹配指的是和索引中的所有列都进行匹配。例如：
-```$xslt
-mysql> select * from user_info where first_name="yu" and last_name="jiu" and age=9;
-+----+------------+-----------+-----+
-| id | first_name | last_name | age |
-+----+------------+-----------+-----+
-|  7 | yu         | jiu       |   9 |
-+----+------------+-----------+-----+
-1 row in set (0.00 sec)
-
-# 查看索引的使用情况
-mysql> explain select * from user_info where first_name="yu" and last_name="jiu" and age=9\G
+使用索引 name 来查询：
+```
+mysql> explain select * from index_single_test where name="index_1"\G
 *************************** 1. row ***************************
            id: 1
   select_type: SIMPLE
-        table: user_info
+        table: index_single_test
+   partitions: NULL
+         type: const
+possible_keys: name
+          key: name
+      key_len: 30
+          ref: const
+         rows: 1
+     filtered: 100.00
+        Extra: NULL
+1 row in set, 1 warning (0.00 sec)
+```
+
+我们看到 `type = "const", key = "name"` 确实使用索引来查询。
+
+- 使用 Like 
+```
+mysql> explain select * from index_single_test where name like "%index_1"\G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: index_single_test
+   partitions: NULL
+         type: ALL
+possible_keys: NULL
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+     filtered: 16.67
+        Extra: Using where
+1 row in set, 1 warning (0.00 sec)
+```
+很明显，type 变成了 `ALL`, 全表扫描，没有使用索引
+
+- 范围查询（between，<>）
+```
+mysql> explain select * from index_single_test where size between 0 and 5\G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: index_single_test
+   partitions: NULL
+         type: range
+possible_keys: size
+          key: size
+      key_len: 4
+          ref: NULL
+         rows: 1
+     filtered: 100.00
+        Extra: Using index condition
+1 row in set, 1 warning (0.00 sec)
+mysql> explain select * from index_single_test where size > 0 and size <5\G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: index_single_test
+   partitions: NULL
+         type: range
+possible_keys: size
+          key: size
+      key_len: 4
+          ref: NULL
+         rows: 1
+     filtered: 100.00
+        Extra: Using index condition
+1 row in set, 1 warning (0.00 sec)
+```
+可以看到 `type=range key=size` 是使用索引来查询的。
+
+- 使用 In
+```
+mysql> explain select * from index_single_test where size in (9,4,6)\G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: index_single_test
+   partitions: NULL
+         type: ALL
+possible_keys: size
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+     filtered: 50.00
+        Extra: Using where
+1 row in set, 1 warning (0.01 sec)
+```
+可以看到，`type = ALL, key = NULL` 并没有使用索引。
+
+- 使用 or
+```
+mysql> explain select * from index_single_test where name='index_1' or id=2\G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: index_single_test
+   partitions: NULL
+         type: ALL
+possible_keys: PRIMARY,name
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 6
+     filtered: 58.33
+        Extra: Using where
+1 row in set, 1 warning (0.00 sec)
+```
+可以看到，`type = ALL, key = NULL` 并没有使用索引。即使 id 和 name 字段上都有索引。
+
+`单列索引失效的情况总结`：
+- `使用 Like 索引失效`
+- `使用 In 索引失效`
+- `使用 Or 索引失效`
+
+## 联合（多列）索引的索引策略
+接下来我们来看看联合（多列）索引的索引策略，这里我们创建表结构如下：
+
+```$xslt
+DROP TABLE IF EXISTS `index_double_test`;
+CREATE TABLE `index_double_test` (
+  `id` int(10) NOT NULL AUTO_INCREMENT COMMENT 'id',
+  `name` char(10) NOT NULL DEFAULT '' COMMENT '索引名称',
+  `type` char(50) NOT NULL DEFAULT '' COMMENT '类型',
+  `size` int(10) NOT NULL DEFAULT 0 COMMENT '索引长度',
+  PRIMARY KEY (`id`),
+  KEY `name_type_size` (`name`, `type`, `size`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='多列索引测试表';
+insert into `index_double_test` (index_double_test.name, index_double_test.type, index_double_test.size) values ('index_1','key', 10);
+insert into `index_double_test` (index_double_test.name, index_double_test.type, index_double_test.size) values ('index_2','join', 8);
+insert into `index_double_test` (index_double_test.name, index_double_test.type, index_double_test.size) values ('index_3','primary', 8);
+insert into `index_double_test` (index_double_test.name, index_double_test.type, index_double_test.size) values ('index_4','key', 9);
+insert into `index_double_test` (index_double_test.name, index_double_test.type, index_double_test.size) values ('index_5','fulltext', 4);
+insert into `index_double_test` (index_double_test.name, index_double_test.type, index_double_test.size) values ('index_6','unique', 6);
+```
+
+根据`最左前缀策略`，联合索引对以下的查找有效。
+
+### 1.全值匹配
+全值匹配指的是和索引中的所有列都进行匹配。例如：
+```$xslt
+mysql> explain select * from index_double_test where name='index_1' and type='type' and size=9\G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: index_double_test
    partitions: NULL
          type: ref
-possible_keys: firstName_lastName_age_index
-          key: firstName_lastName_age_index
-      key_len: 66
+possible_keys: name_type_size
+          key: name_type_size
+      key_len: 184
           ref: const,const,const
          rows: 1
      filtered: 100.00
         Extra: Using index
 1 row in set, 1 warning (0.00 sec)
 ```
-从索引的使用来看，`firstName_lastName_age_index` 索引被使用，并且 key_len 的长度是 66 字节等于 fist_name(3*10) + last_name(3*10+2) + 4，能看出来索引三列都匹配。  
+从索引的使用来看，`type = ref key = name_type_size` , 并且 key_len 的长度是 184 字节等于 name(3 * 10) + type(3 * 50) + 4，能看出来索引三列都匹配。 
 
-### 匹配最左前缀
+注意：查询优化器会自动调整 where 子句的条件顺序以使用适合的索引，所以 where 条件顺序颠倒也可以全值匹配。
+
+### 2.匹配最左前缀
 即只使用索引的第一列，例如：
 ```$xslt
-mysql> select * from user_info where first_name="yu";
-+----+------------+-----------+-----+
-| id | first_name | last_name | age |
-+----+------------+-----------+-----+
-|  7 | yu         | jiu       |   9 |
-+----+------------+-----------+-----+
-1 row in set (0.00 sec)
-
-mysql> explain select * from user_info where first_name="yu"\G
+mysql> explain select * from index_double_test where name='index_1'\G
 *************************** 1. row ***************************
            id: 1
   select_type: SIMPLE
-        table: user_info
+        table: index_double_test
    partitions: NULL
          type: ref
-possible_keys: firstName_lastName_age_index
-          key: firstName_lastName_age_index
+possible_keys: name_type_size
+          key: name_type_size
       key_len: 30
           ref: const
          rows: 1
      filtered: 100.00
         Extra: Using index
-1 row in set, 1 warning (0.00 sec)
+1 row in set, 1 warning (0.01 sec)
 ```
-真正使用的索引 key 还是 firstName_lastName_age_index，key_len 是 30 说明只使用了第一列 first_name(3*10) 来匹配。
-查询优化器会自动调整where子句的条件顺序以使用适合的索引，所以 where 子中的条件顺序颠倒也可以全值匹配。
+从索引的使用来看，`type = ref key = name_type_size` , key_len 是 30 说明只使用了第一列 name(3*10) 来匹配。
 
-### 匹配列前缀
-也可以只匹配某一列的前缀，例如匹配姓为 y 开头的用户：
+### 3.匹配列前缀
+也可以只匹配某一列的前缀
 ```$xslt
-mysql> select * from user_info where first_name like "y%";
-+----+------------+-----------+-----+
-| id | first_name | last_name | age |
-+----+------------+-----------+-----+
-|  6 | yang       | ba        |   8 |
-|  7 | yu         | jiu       |   9 |
-+----+------------+-----------+-----+
-2 rows in set (0.00 sec)
-mysql> explain select * from user_info where first_name like "y%"\G
+mysql> explain select * from index_double_test where name like "ix%"\G
 *************************** 1. row ***************************
            id: 1
   select_type: SIMPLE
-        table: user_info
+        table: index_double_test
    partitions: NULL
          type: range
-possible_keys: firstName_lastName_age_index
-          key: firstName_lastName_age_index
+possible_keys: name_type_size
+          key: name_type_size
+      key_len: 30
+          ref: NULL
+         rows: 1
+     filtered: 100.00
+        Extra: Using where; Using index
+1 row in set, 1 warning (0.00 sec)
+```
+这里看到 key_len 也是 30，说明使用的也是第一列索引来匹配。
+
+### 4.匹配范围值
+用于匹配范围查找，示例如下：
+```$xslt
+mysql> explain select * from index_double_test where name between 'a' and 'm'\G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: index_double_test
+   partitions: NULL
+         type: range
+possible_keys: name_type_size
+          key: name_type_size
       key_len: 30
           ref: NULL
          rows: 2
@@ -184,94 +319,133 @@ possible_keys: firstName_lastName_age_index
         Extra: Using where; Using index
 1 row in set, 1 warning (0.00 sec)
 ```
-这里看到 key_len 也是 30，说明使用的也是第一列索引来匹配。
-
-### 匹配范围值
-用于匹配范围查找，例如匹配姓在 'a' 和 'y' 之间的人。
-```$xslt
-mysql> select * from user_info where first_name between 'a' and 'y';
-+----+------------+-----------+-----+
-| id | first_name | last_name | age |
-+----+------------+-----------+-----+
-|  8 | ding       | q         |  10 |
-+----+------------+-----------+-----+
-1 row in set (0.00 sec)
-mysql> explain select * from user_info where first_name between 'a' and 'y'\G
-*************************** 1. row ***************************
-           id: 1
-  select_type: SIMPLE
-        table: user_info
-   partitions: NULL
-         type: range
-possible_keys: firstName_lastName_age_index
-          key: firstName_lastName_age_index
-      key_len: 30
-          ref: NULL
-         rows: 3
-     filtered: 100.00
-        Extra: Using where; Using index
-1 row in set, 1 warning (0.00 sec)
-```
 可以看到 key_len 也是 30，说明只使用了索引的第一列来匹配。
 
-### 精确匹配某一列且范围匹配另一列
-直接上案例，查找 fist_name = 'yang' 且 last_name 范围查找的用户：
+### 5.精确匹配某一列且范围匹配另一列
+直接上案例
 ```$xslt
-mysql> select * from user_info where first_name='yang' and last_name between 'a' and 'j';
-+----+------------+-----------+-----+
-| id | first_name | last_name | age |
-+----+------------+-----------+-----+
-|  6 | yang       | ba        |   8 |
-+----+------------+-----------+-----+
-1 row in set (0.00 sec)
-mysql> explain select * from user_info where first_name='yang' and last_name between 'a' and 'j'\G
+mysql> explain select * from index_double_test where name='yu' and type like 'a%'\G
 *************************** 1. row ***************************
            id: 1
   select_type: SIMPLE
-        table: user_info
+        table: index_double_test
    partitions: NULL
          type: range
-possible_keys: firstName_lastName_age_index
-          key: firstName_lastName_age_index
-      key_len: 62
+possible_keys: name_type_size
+          key: name_type_size
+      key_len: 180
           ref: NULL
          rows: 1
      filtered: 100.00
         Extra: Using where; Using index
 1 row in set, 1 warning (0.00 sec)
-```
-key_len 为 62，说明使用了前两列索引来匹配，first_name(3*10) + last_name(3*10+2)。
-如果第一列是范围查找第二列是精确查找会一样吗？
 
-```$xslt
-mysql> explain select * from user_info where first_name like '%a' and last_name='qiu'\G
+mysql> explain select * from index_double_test where name='yu' and type like '%a'\G
 *************************** 1. row ***************************
            id: 1
   select_type: SIMPLE
-        table: user_info
+        table: index_double_test
    partitions: NULL
-         type: index
-possible_keys: NULL
-          key: firstName_lastName_age_index
-      key_len: 66
-          ref: NULL
-         rows: 13
-     filtered: 20.00
+         type: ref
+possible_keys: name_type_size
+          key: name_type_size
+      key_len: 30
+          ref: const
+         rows: 1
+     filtered: 16.67
         Extra: Using where; Using index
 1 row in set, 1 warning (0.00 sec)
 ```
-可以看到，type 类型变成了 index ,也就是全索引扫描，效率是比较差的。
+这里第二列我们有两种情况：
+1. 第二列使用前缀匹配(like type "a%")，key_len = 180 则说明使用的是第一列和第二列的索引
+2. 第二列使用后缀匹配(like type "%a")，key_len = 30 则说明只使用了第一列索引，第二列索引无法使用
 
-### 只访问索引的查询
+如果第一列是范围查找第二列是精确查找会一样吗？
+
+```$xslt
+mysql> explain select * from index_double_test where name like 'y%' and type='key'\G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: index_double_test
+   partitions: NULL
+         type: range
+possible_keys: name_type_size
+          key: name_type_size
+      key_len: 180
+          ref: NULL
+         rows: 1
+     filtered: 16.67
+        Extra: Using where; Using index
+1 row in set, 1 warning (0.00 sec)
+
+mysql> explain select * from index_double_test where name like '%y' and type='key'\G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: index_double_test
+   partitions: NULL
+         type: index
+possible_keys: NULL
+          key: name_type_size
+      key_len: 184
+          ref: NULL
+         rows: 6
+     filtered: 16.67
+        Extra: Using where; Using index
+1 row in set, 1 warning (0.00 sec)
+```
+第一列也有两种情况：
+1. 第一列使用前缀匹配(like type "a%")，key_len = 180 则说明使用的是第一列和第二列的索引
+2. 第一列使用后缀匹配(like type "%a")，type = index 则说明使用的是全索引扫描，效率是比较低的
+
+### 6.只访问索引的查询
 这里用到覆盖索引，后面专门的章节来讲。
 
-## 什么时候索引会失效?
-- 如果条件中有or，即使其中有条件带索引也不会使用(这也是为什么尽量少用or的原因)。注意：要想使用or，又想让索引生效，只能将or条件中的每个列都加上索引
-- 对于多列索引，不是使用的第一部分，则不会使用索引（即不符合最左前缀原则）
-- like查询是以%开头
-- 如果列类型是字符串，那一定要在条件中将数据使用引号引用起来, 否则不使用索引
-- 查询条件中含有函数或表达式
-- 如果 mysql 估计使用全表扫描要比使用索引快，则不使用索引
+### 联合索引使索引失效的情况
+- 不是使用的第一部分，则索引使用全索引扫描
+```
+mysql> explain select * from index_double_test where type='key' and size=9\G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: index_double_test
+   partitions: NULL
+         type: index
+possible_keys: NULL
+          key: name_type_size
+      key_len: 184
+          ref: NULL
+         rows: 6
+     filtered: 16.67
+        Extra: Using where; Using index
+1 row in set, 1 warning (0.00 sec)
+```
+
+- 查询条件中有 or
+```
+mysql> explain select * from index_double_test where name ='yu' or type='key' or size = 8\G
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: index_double_test
+   partitions: NULL
+         type: index
+possible_keys: name_type_size
+          key: name_type_size
+      key_len: 184
+          ref: NULL
+         rows: 6
+     filtered: 42.13
+        Extra: Using where; Using index
+1 row in set, 1 warning (0.00 sec)
+```
+- like 查询是以 % 开头
+上面有演示，这里不再演示
+
+- 查询条件中有函数或表达式
+
+`注意：这里索引失效，并不是不使用索引，可以看到  key = name_type_size, 只是 type = index，即全索引扫描，效率比较差而已` 
 
 ## 参考
 《高性能 Mysql 第三版》
