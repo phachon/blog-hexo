@@ -143,6 +143,7 @@ tags:
 - [学习MySQL优化原理，这一篇就够了](https://www.cnblogs.com/liujiacai/p/7605612.html)
 - [数据库优化](https://www.cnblogs.com/wmbg/p/6800354.html)
 - [MySQL 数据库索引优化项目实战](https://blog.csdn.net/gitchat/article/details/80326842)
+- [MySQL索引原理及慢查询优化](https://tech.meituan.com/mysql_index.html)
 - [mysql面试](https://blog.csdn.net/qq_39322743/article/details/79701420)
 - [mysql面试集锦](http://app.myzaker.com/news/article.php?pk=5a114dd51bc8e03a2d000007)
 - [索引区别](https://www.cnblogs.com/lonelyxmas/p/4594624.html)
