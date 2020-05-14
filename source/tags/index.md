@@ -1,3 +1,5 @@
-title: "标签"
-layout: "tags"
+---
+title: tags
+type: "tags"
+comments: false
 ---
