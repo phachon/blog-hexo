@@ -5,5 +5,4 @@ db.json
 .deploy_git/
 yarn.lock
 package-lock.json
-themes/*
-
+themes/
