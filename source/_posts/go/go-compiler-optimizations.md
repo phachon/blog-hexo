@@ -1,5 +1,5 @@
 ---
-title: 【翻译】golang 编译优化
+title: 【翻译】Golang 编译优化
 date: 2019-01-11 12:19:10 
 banner: /images/go_logo.jpg
 thumbnail: /images/go_logo.jpg

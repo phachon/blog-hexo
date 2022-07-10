@@ -1,5 +1,5 @@
 ﻿---
-title: Go 语言操作 mysql 建表问题的解决办法
+title: Go 应用之 - mysql 建表问题的解决办法
 date: 2018-02-05
 categories: Go
 tags:

@@ -1,5 +1,5 @@
 ---
-title: Go 启动过程
+title: Go runtime 系列之 - 启动过程
 date: 2018-09-09
 banner: /images/go_logo.jpg
 thumbnail: /images/go_logo.jpg
@@ -48,3 +48,7 @@ tags:
 
 ### 执行 main.main 函数
 执行入口函数，开始运行
+
+
+参考资料：
+- [Go 程序是怎样跑起来的](https://www.cnblogs.com/qcrao-2018/p/11124360.html)

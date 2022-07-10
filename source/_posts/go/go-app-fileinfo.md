@@ -1,5 +1,5 @@
 ﻿---
-title: Go 获取文件信息方法
+title: Go 应用之 - 获取文件信息方法
 date: 2017-10-10
 categories: Go
 tags:

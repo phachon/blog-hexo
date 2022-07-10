@@ -1,5 +1,5 @@
 ---
-title: Go switch 踩坑记录 
+title: Go 应用之 - switch 踩坑记录 
 date: 2019-06-28
 banner: /images/go_logo.jpg
 thumbnail: /images/go_logo.jpg
