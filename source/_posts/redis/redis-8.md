@@ -59,3 +59,7 @@ zrevrangebyscore key 60 80
 
 
 ## 总结
+
+
+参考资料：
+- [Redis为什么用跳表而不用平衡树？](https://blog.csdn.net/u010412301/article/details/64923131)
