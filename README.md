@@ -27,3 +27,8 @@ hexo s
 # 部署
 hexo d
 ```
+
+- 安装主题
+```
+git clone https://github.com/theme-next/hexo-theme-next themes/next
+```
